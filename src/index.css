@@ -1,0 +1,26 @@
+:root {
+  --bs-body-font-family: 'Montserrat';
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color: rgba(44, 42, 42, 1);
+  background-color: #fff;
+}
+
+.fs-7 {
+  font-size: 0.85rem;
+}
+
+.main-wrapper {
+  min-height: 100vh;  
+}
+
+.negative-margin {
+  position: relative;
+  top: 110px;
+}
+
+@media (max-width: 1019px) {
+  .negative-margin {
+    position: relative;
+    top: 0;
+  }
+}

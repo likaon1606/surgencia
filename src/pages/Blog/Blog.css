@@ -1,0 +1,11 @@
+.negative-margin {
+    position: relative;
+    top: 110px;
+  }
+  
+  @media (max-width: 1019px) { 
+    .negative-margin {
+      position: relative;
+      top: 0;
+    }
+  }

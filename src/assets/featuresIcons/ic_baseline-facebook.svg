@@ -1,0 +1,18 @@
+<svg width="35" height="34" viewBox="0 0 35 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="ic:baseline-facebook" filter="url(#filter0_d_84_670)">
+<rect x="4" width="27" height="26" rx="10" fill="white"/>
+<path id="Vector" d="M28.75 13.0001C28.75 7.02008 23.71 2.16675 17.5 2.16675C11.29 2.16675 6.25 7.02008 6.25 13.0001C6.25 18.2434 10.12 22.6092 15.25 23.6167V16.2501H13V13.0001H15.25V10.2917C15.25 8.20091 17.0162 6.50008 19.1875 6.50008H22V9.75008H19.75C19.1313 9.75008 18.625 10.2376 18.625 10.8334V13.0001H22V16.2501H18.625V23.7792C24.3062 23.2376 28.75 18.6226 28.75 13.0001Z" fill="#EE6603"/>
+</g>
+<defs>
+<filter id="filter0_d_84_670" x="0" y="0" width="35" height="34" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_84_670"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_84_670" result="shape"/>
+</filter>
+</defs>
+</svg>
