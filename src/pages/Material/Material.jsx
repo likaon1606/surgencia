@@ -7,6 +7,7 @@ import File from './components/File'
 import { useState, useEffect } from 'react'
 import PaginationComponent from '../../components/PaginationComponent'
 import { CategoryList } from './components/CategoryList'
+import { Loader } from '@/components/ui/Loader/Loader'
 
 const Material = () => {
   const breadcrumbsData = [{ name: 'Inicio', url: '/' }, { name: 'Material Descargable' }]
@@ -32,31 +33,34 @@ const Material = () => {
       <Breadcrumbs breadcrumbs={breadcrumbsData} />
       <CategoryList />
       {!isLoading && !isError ? (
-        <div className="d-flex flex-row flex-wrap justify-content-center ">
-          {materials?.map(m => {
-            return (
-              <File
-                className="d-flex justify-content-center"
-                key={m.id}
-                title={m.title}
-                firstName={m.User.firstName}
-                lastName={m.User.lastName}
-              ></File>
-            )
-          })}
-        </div>
+        <>
+          <div className="d-flex flex-row flex-wrap justify-content-center ">
+            {materials?.map(m => {
+              return (
+                <File
+                  className="d-flex justify-content-center"
+                  key={m.id}
+                  image={m.imagePreview}
+                  title={m.title}
+                  author={m.author}
+                  externalUrl={m.externalUrl}
+                ></File>
+              )
+            })}
+          </div>
+          <div className="d-flex justify-content-center mt-5">
+            <PaginationComponent
+              totalPages={data?.pageCount}
+              prevPage={prevPage}
+              nextPage={nextPage}
+              setPage={setCurrentPage}
+              currentPage={data?.page}
+            />
+          </div>
+        </>
       ) : (
-        <div className="d-flex justify-content-center">Cargando...</div>
+        <Loader />
       )}
-      <div className="d-flex justify-content-center mt-5">
-        <PaginationComponent
-          totalPages={data?.pageCount}
-          prevPage={prevPage}
-          nextPage={nextPage}
-          setPage={setCurrentPage}
-          currentPage={data?.page}
-        />
-      </div>
     </RootLayout>
   )
 }

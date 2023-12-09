@@ -4,7 +4,7 @@ import { Loader } from '../components/ui/Loader/Loader'
 
 export const AuthLayout = () => {
   return (
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={<Loader fullHeight />}>
       <Outlet />
     </Suspense>
   )

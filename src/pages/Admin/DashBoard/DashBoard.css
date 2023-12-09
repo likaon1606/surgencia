@@ -1,0 +1,26 @@
+.dashboard-content {
+    display: flex;
+    justify-content: center;
+    background: #d9d9d9;
+    border-radius: 20px;
+    padding: 10px;
+  }
+  
+  .dashboard-content div {
+    flex: 1; /* Hace que ambos divs ocupen el mismo espacio dentro del contenedor */
+  }
+  
+  .dashboard-content div:first-child {
+    border-right: 1px solid white;
+    margin-right: 10px; /* Ajusta el espacio a la derecha del primer div */
+    margin-left: 5px;  /* Añade el mismo espacio a la izquierda del primer div */
+  }
+  
+  .dashboard-content p {
+    text-align: left; /* Alinea el texto a la izquierda */
+  }
+  
+  .dashboard-content div:last-child p h3{
+    text-align: right; /* Alinea el texto a la derecha en el último div */
+  }
+  

@@ -1,19 +1,19 @@
-import React from 'react';
+import React from 'react'
+import { FaUserCircle } from 'react-icons/fa'
+import logo from '../../../assets/imgSurgencia.png'
 
-const CardBusiness = ({ name, lastName, description, image }) => {
+const CardBusiness = ({ name, lastName }) => {
   return (
-    <div>
-      <div className="card-body d-flex align-items-center">
-        <img src={image} className="rounded-circle mx-1" style={{ width: '7em', height: '7em' }} alt="foto" />
-        <div className="mx-4">
-          <h3 className="card-title">
-            {name} {lastName}
-          </h3>
-          <p className="card-text">{description}</p>
-        </div>
+    <div className="d-flex align-items-center gap-3">
+      <img src={logo} alt="logo" className="nav-logo"></img>
+      <div>
+        <h3 className="card-title text-primary">
+          {name} {lastName}
+        </h3>
+        <small>Autor del Blog</small>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CardBusiness;
+export default CardBusiness

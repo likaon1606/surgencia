@@ -8,7 +8,7 @@ import './rootLayout.css'
 
 export const Root = () => {
   return (
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={<Loader fullHeight />}>
       <Navbar />
       <main className="main-wrapper">
         <Container fluid="md">

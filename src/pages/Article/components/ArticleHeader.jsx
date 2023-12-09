@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { Container } from 'react-bootstrap'
 import { BsFacebook, BsInstagram, BsLinkedin, BsTwitter } from 'react-icons/bs'
-import { BiShareAlt } from 'react-icons/bi'
+import { BiShareAlt, BiSolidTime } from 'react-icons/bi'
 import Breadcrumbs from '@/components/ui/Breadcrums'
+import './ArticleHeader.css'
 
-const ArticleHeader = ({ title }) => {
+const ArticleHeader = ({ title, date }) => {
   const breadcrumbsData = [{ name: 'Inicio', url: '/' }, { name: 'Blog', url: '/blog' }, { name: 'Artículo del blog' }]
   const [copied, setCopied] = useState(false)
 
@@ -18,13 +19,18 @@ const ArticleHeader = ({ title }) => {
   }
 
   return (
-    <header className="bg-info-subtle text-dark p-2">
+    <header className="article-card__header bg-info-subtle text-dark pb-4">
       <Container>
         <div className="breadcrumb mx-3">
           <Breadcrumbs breadcrumbs={breadcrumbsData} />
         </div>
-        <h2 className="text-center mb-4">{title}</h2>
-        <div className="d-flex gap-2 align-items-center mx-3">
+        <h2 className="text-center mb-5">{title}</h2>
+        <div className="d-flex align-items-center gap-2 mx-3 fw-bold">
+          <BiSolidTime /> {new Date(date).toLocaleDateString('es-CL', {
+            dateStyle: 'long'
+          })}
+        </div>
+        <div className="d-flex align-items-center gap-2 mx-3">
           <BiShareAlt className="mt-1" role="button" onClick={copyToClipboard} />
           {copied && <span className="enlace-copiado">Enlace copiado</span>}
           <a className="text-black" href="https://www.instagram.com/ongsurgencia/reels/" target="_blank">

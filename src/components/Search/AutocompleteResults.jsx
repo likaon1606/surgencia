@@ -3,19 +3,26 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import { MdSearchOff, MdDownload } from 'react-icons/md'
 import PropTypes from 'prop-types'
 
-const MaterialItem = ({ id, title }) => {
+const MaterialItem = ({ id, title, externalUrl,categoryName }) => {
   return (
     <ListGroup.Item className="d-flex align-items-center justify-content-between gap-3">
+    <div className="d-flex flex-column">
       <h4 className="fs-6 fw-semibold mb-0">{title}</h4>
-      <MdDownload size={24} />
-    </ListGroup.Item>
+      <div className="text-muted">{categoryName}</div>
+    </div>
+    <div className="d-flex flex-column align-items-end">
+      <Link to={externalUrl} target="_blank" rel="noopener noreferrer">
+        <MdDownload size={24} />
+      </Link>
+    </div>
+  </ListGroup.Item>
   )
 }
 
 const PostItem = ({ id, title, imageUrl }) => {
   return (
     <ListGroup.Item>
-      <Link to={`/article/${id}`} className="text-decoration-none d-flex align-items-center gap-3">
+      <Link to={`/blog/${id}`} className="text-decoration-none d-flex align-items-center gap-3">
         {imageUrl && <img src={imageUrl} alt={title} width={20} height={20} />}
         <div>
           <h4 className="fs-6 fw-semibold mb-0">{title}</h4>
@@ -44,7 +51,7 @@ export default function AutocompleteResults({ autocomplete, autocompleteState, p
                     item.posts?.length > 0 && <ListGroup.Item variant="info">Blog</ListGroup.Item>,
                     ...item.posts?.map(post => <PostItem key={item.id} {...post} />),
                     item.materials?.length > 0 && <ListGroup.Item variant="info">Material</ListGroup.Item>,
-                    ...item.materials?.map(material => <MaterialItem key={item.id} {...material} />),
+                    ...item.materials?.map(material => <MaterialItem key={item.id} {...material} categoryName={material.Category.name}/>),
                     item.posts?.length === 0 && item.materials?.length === 0 && (
                       <article className="d-flex flex-column align-items-center text-center gap-2 p-3 bg-white border rounded">
                         <MdSearchOff size={40} />

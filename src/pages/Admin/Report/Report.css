@@ -1,0 +1,10 @@
+.report-image {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    max-height: 200px;
+  }
+  
+  .selected-image {
+    border: 2px solid #007bff; 
+  }

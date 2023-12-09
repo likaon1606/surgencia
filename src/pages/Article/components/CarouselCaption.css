@@ -1,0 +1,29 @@
+.custom-carousel-caption {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    color: black;
+    background: rgba(240, 238, 238, 0.89);
+    padding: 10px;
+    padding-bottom: 0px;
+    border-radius: 5px;
+    max-width: 25%;
+  }
+  
+  @media (max-width: 768px) {
+    .custom-carousel-caption {
+      position: absolute;
+      max-width: 50%; 
+      font-size: 15px;
+    }
+    .rounded .carousel-inner .carousel-item {
+        height: 10em;
+    }
+
+    .rounded .carousel-inner .carousel-item img{
+        height: 15em;
+        transform: translateY(33%);
+        padding-bottom: 2px;
+    }
+  }
+

@@ -1,0 +1,4 @@
+.article-card__header {
+  width: calc(100vw - 0.5rem);
+  margin-left: calc(50% - 50vw);
+}

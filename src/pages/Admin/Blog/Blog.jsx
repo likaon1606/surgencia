@@ -1,26 +1,20 @@
 import { useState } from 'react'
+import { FaTrash, FaEdit, FaArrowRight } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+import toast from 'react-hot-toast'
 import SearchBar from '../../../components/ui/SearchBar'
 import ButtonBack from '../../../components/ui/ButtonBack'
 import ButtonAdmin from '../../../components/ui/ButtonAdmin'
-import { useArticles } from '../../../hooks/useArticles'
-import { FaTrash, FaEdit } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { useGetAllArticles } from '../../../hooks/useGetAllArticles'
+import { ArticleService } from '../../../services/article.service'
+import { useNavigate } from 'react-router-dom'
+import DOMPurify from 'dompurify'
 
 const AdminBlog = () => {
-  const { data: articles, isLoading, isError } = useArticles()
-
+  const { data: articles, isLoading, isError, refetch } = useGetAllArticles()
+  const navigate = useNavigate()
   const [filter, setFilter] = useState('')
   const [visibleArticles, setVisibleArticles] = useState(3)
-
-  // interface PostAttributes {
-  //   id: string;
-  //   title: string;
-  //   imageUrl: string;
-  //   summary: string;
-  //   body: string;
-  //   userId: string;
-  //   active: boolean;
-  // }
 
   if (isLoading) {
     return <p>Loading...</p>
@@ -30,7 +24,7 @@ const AdminBlog = () => {
     return <p>Error loading data</p>
   }
 
-  const articlesFiltered = articles.paginatedResults.filter(article =>
+  const articlesFiltered = articles.filter(article =>
     article.title.toLowerCase().includes(filter.toLowerCase()),
   )
 
@@ -38,14 +32,29 @@ const AdminBlog = () => {
     setVisibleArticles(prevVisibleArticles => prevVisibleArticles + 3)
   }
 
+  const confirmDelete = async (id, title) => {
+    const status = window.confirm(`¿Estás seguro de eliminar la noticia "${title}"?`)
+    if (status) {
+      await toast.promise(ArticleService.remove(id), {
+        loading: 'Eliminando...',
+        success: (
+          <p>
+            Noticia <b>{title}</b> eliminada con éxito
+          </p>
+        ),
+        error: err => <b>{err.response?.data?.message || 'Ha ocurrido un error'}</b>,
+      })
+      refetch()
+    }
+  }
+
   return (
-    <div className="mt-2 p-5">
+    <div className="mt-2 p-2 p-md-4">
       <div className="d-flex justify-content-between">
         <div className="d-flex" style={{ width: '1em' }}>
           <ButtonBack />
         </div>
         <Link to="/admin/Blog/add-article">
-          {' '}
           <ButtonAdmin name="Agregar Articulo" backgroundColor="black" />
         </Link>
       </div>
@@ -55,39 +64,75 @@ const AdminBlog = () => {
       <div className="d-flex justify-content-between mt-5">
         <SearchBar onChange={e => setFilter(e.target.value)} value={filter} />
       </div>
-      <div className="mt-5">
-        {articlesFiltered.slice(0, visibleArticles).map((article, id) => (
-          <div key={id} className="p-2">
-            <div className="">
-              <p className="">
-                {article.User.firstName} {article.User.lastName}
-              </p>
-            </div>
-            <div className="d-flex mt-3">
-              <img
-                className="rounded-circle"
-                src={article.imageUrl}
-                alt="Article's Image"
-                style={{ width: '10em', height: '10em' }}
-              />
-              <div className="ml-5 p-3 d-flex justify-content-between align-items-start" style={{ width: '100%' }}>
-                <div>
-                  <p>{article.title}</p>
-                  <p>{article.summary}</p>
-                </div>
-                <div className="d-flex flex-column align-items-end">
-                  <button className="btn" style={{ width: '1em' }}>
-                    <FaTrash />
-                  </button>
-                  <button className="btn" style={{ width: '1em' }}>
-                    <FaEdit />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+
+      <section className="table-wrapper table-responsive mt-5">
+        <table className="table table-hover">
+          <tbody>
+            {articlesFiltered.slice(0, visibleArticles).map(article => (
+              <tr key={article.id}>
+                <td>
+                  <img
+                    className="rounded-circle"
+                    src={article.imageUrl}
+                    alt="Article's Image"
+                    style={{ width: '7em', height: '7em' }}
+                  />
+                </td>
+                <td>
+                  <p className="label">Titulo</p>
+                  <p className="value">{article.title}</p>
+                </td>
+                <td>
+                  <p className="label">Fecha</p>
+                  <p className="value">
+                    {new Date(article.createdAt).toLocaleDateString('es-ES', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </p>
+                </td>
+                <td>
+                  <p className="label">Autor</p>
+                  <p className="value">
+                    {article.User.firstName} {article.User.lastName}
+                  </p>
+                </td>
+                <td>
+                  <p className="label">Estado</p>
+                  <p className="value">{article.active ? 'Activo' : 'Inactivo'}</p>
+                </td>
+                <td>
+                  <div className="d-flex flex-column gap-2 align-items-end">
+                    <Link
+                      className="btn btn-success"
+                      to={`/blog/${article.id}`}
+                      target="_blank"
+                      style={{ width: '3em' }}
+                    >
+                      <FaArrowRight />
+                    </Link>
+                    <button
+                      className="btn btn-primary"
+                      onClick={() => navigate(`/admin/blog/edit-article/${article.id}`)}
+                      style={{ width: '3em' }}
+                    >
+                      <FaEdit />
+                    </button>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => confirmDelete(article.id, article.title)}
+                      style={{ width: '3em' }}
+                    >
+                      <FaTrash />
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
 
       {articlesFiltered.length > visibleArticles && (
         <div className="mt-3 text-center">

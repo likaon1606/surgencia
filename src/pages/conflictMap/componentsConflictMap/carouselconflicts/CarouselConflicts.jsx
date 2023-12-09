@@ -11,27 +11,21 @@ import useConflicts from '../../../../hooks/useConflicts'
 const CarouselConflicts = () => {
   const settings = {
     dots: true,
-    infinite: false,
-    speed: 500,
+    infinite: true,
     slidesToShow: 3,
     slidesToScroll: 3,
     initialSlide: 0,
+    autoplay: true,
+    speed: 5000,
+    autoplaySpeed: 5000,
     responsive: [
       {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
+        breakpoint: 900,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
+          infinite: true,
         },
       },
       {
@@ -48,19 +42,16 @@ const CarouselConflicts = () => {
   useEffect(() => {}, [conflict])
 
   return (
-    <div className="m-5">
-      <Slider {...settings}>
+    <div className="my-5">
+      <Slider {...settings} className='sliderConflict'>
         {isLoading
           ? 'Cargando...'
           : conflict?.map(conflict => (
-              <Card key={conflict.id} className="text-white shadow-sm" style={{ width: '18rem' }}>
+              <Card key={conflict.id} className="text-white shadow-sm">
                 <Card.Img src={conflict.imageUrl} alt="Card image" style={{ height: '28rem' }} />
-                <Card.ImgOverlay style={{ background: 'rgba(0, 0, 0, 0.5)', width: '100%' }}>
+                <Card.ImgOverlay style={{ background: 'rgba(0, 0, 0, 0.5)', width: '100%', margin: 0 }}>
                   <div className=" d-flex flex-column justify-content-end h-100">
                     <Card.Title className="fw-bold">{conflict.title}</Card.Title>
-                    <Link to="*" className="text-decoration-none text-white">
-                      Quiero saber más
-                    </Link>
                   </div>
                 </Card.ImgOverlay>
               </Card>

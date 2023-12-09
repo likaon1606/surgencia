@@ -12,12 +12,12 @@ const ProjectsAlliance = () => {
   return (
     <RootLayout title="Project" backButton={<ButtonBack />} searchBar={<SearchBar />}>
       <Breadcrumbs breadcrumbs={breadcrumbsData} />
-      <Container>
-        <h1 className="ms-5 me-5 mt-5"> Nuestros proyectos </h1>
+      <Container className="pb-5">
+        <h2 className="text-center mb-5"> Nuestros proyectos </h2>
         <CarouselProjects />
       </Container>
       <Container>
-        <h1 className="m-5"> Quienes nos apoyan </h1>
+        <h2 className="text-center mb-4"> Quienes nos apoyan </h2>
         <CarouselAlliances />
       </Container>
     </RootLayout>

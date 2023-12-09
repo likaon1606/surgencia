@@ -1,23 +1,23 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import useCategories from '@/hooks/useCategories'
 
 export const CategoryList = () => {
-  const { categories, isLoading } = useCategories()
+  const { categories } = useCategories()
   return (
-    <div className="d-flex justify-content-center">
-      <ul className="list-categories d-flex flex-row ">
-        {!isLoading ? (
-          categories?.map(c => {
-            return (
-              <Link className="category m-3" key={c.id} to={`/material/${c.slug}`}>
-                {c.name}
-              </Link>
-            )
-          })
-        ) : (
-          <div className="d-flex justify-content-center">Cargando...</div>
-        )}
-      </ul>
-    </div>
+    <ul className="d-flex flex-wrap justify-content-center gap-3 px-0">
+      {categories?.map(c => {
+        return (
+          <NavLink
+            key={c.id}
+            to={`/material/${c.slug}`}
+            className={({ isActive }) =>
+              `fs-5 fw-bold px-3 py-2 text-muted rounded-pill shadow ${isActive ? 'bg-warning' : 'bg-info'}`
+            }
+          >
+            {c.name}
+          </NavLink>
+        )
+      })}
+    </ul>
   )
 }

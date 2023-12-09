@@ -42,7 +42,6 @@ TL: [José Campos](https://github.com/josecamposhz)
 
 - [Javier Figueroa](https://github.com/javiernfigueroa) 
 - [Ariel Fuentes](https://github.com/likaon1606)  
-- [Henry Morales](https://github.com/AFD9417) 
 - [Nicolás Rivas](https://github.com/nicolasrivas2001)  
 - [Sebastian Diaz](https://github.com/Sebastianidm) 
 - [Marcelo Bovet](https://github.com/marcelobovet) 

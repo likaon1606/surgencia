@@ -1,10 +1,10 @@
 import { useQuery } from 'react-query'
 import { MaterialService } from '../services/material.service'
 
-const useMaterials = (page) => {
+const useMaterials = (page, perPage = 9) => {
   return useQuery({
     queryKey:"materials",
-    queryFn: () => MaterialService.getMaterials(page)
+    queryFn: () => MaterialService.getMaterials(page, perPage)
   })
 }
 

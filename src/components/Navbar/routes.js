@@ -4,23 +4,23 @@ export const routes = [
     path: '/',
   },
   {
-    label: 'Nosotros',
+    label: 'Quiénes Somos',
     path: '/about',
   },
   {
-    label: 'Blog/Noticias',
+    label: 'Noticias',
     path: '/blog',
   },
   {
-    label: 'Material',
+    label: 'Proyectos y Colaboraciones',
+    path: '/project',
+  },
+  {
+    label: 'Material Descargable',
     path: '/material',
   },
   {
-    label: 'Mapa de conflicto',
+    label: 'Mapa de conflictos y amenazas',
     path: '/conflict',
-  },
-  {
-    label: 'Proyectos y Alianzas',
-    path: '/project',
   },
 ]

@@ -1,52 +1,59 @@
-.card-img-top {
+.sliderAlliance .card-img-top {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   border-radius: 50%;
-  height: 15.625rem !important;
-  width: 15.625rem !important;
-  position: relative;
-  top: -5rem;
   object-fit: cover;
 }
 
-.card {
-  border-radius: 0;
-  cursor: pointer;
-  margin-top: 6.25rem !important;
-}
-
-.card:hover {
+.sliderAlliance .card:hover {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  cursor: pointer;
 }
 
-.card-body {
-  margin-top: -3.125rem
-}
-
-.bi {
-  font-size: 25px;
-}
-
-.slick-arrow,
-.slick-prev {
+.sliderAlliance .slick-arrow,
+.sliderAlliance .slick-prev {
   border-radius: 50%;
   scale: 1.5;
 }
 
-.slick-arrow,
-.slick-arrow:hover {
+.sliderAlliance .slick-arrow,
+.sliderAlliance .slick-arrow:hover {
   background-color: #FFB900 !important;
 }
 
-.slick-prev,
-.slick-prev:hover {
+.sliderAlliance .slick-prev,
+.sliderAlliance .slick-prev:hover {
   background-color: blue !important;
 }
 
-.slick-prev:hover:before,
-.slick-prev:focus:before,
-.slick-next:hover:before,
-.slick-next:focus:before {
+.sliderAlliance .slick-prev:hover:before,
+.sliderAlliance .slick-prev:focus:before,
+.sliderAlliance .slick-next:hover:before,
+.sliderAlliance .slick-next:focus:before {
   opacity: .75;
+}
+
+.sliderAlliance .slick-slide>div {
+  margin: 0 15px;
+  height: 100%;
+}
+
+.sliderAlliance .slick-list {
+  margin: 0 15px;
+}
+
+.sliderAlliance .slick-track {
+  display: flex !important;
+  margin-bottom: 1.5rem;
+}
+
+.sliderAlliance .slick-slide {
+  height: inherit !important;
+}
+
+
+@media (max-width: 768px) {
+  .sliderAlliance .slick-arrow {
+    display: none!important;
+  }
 }

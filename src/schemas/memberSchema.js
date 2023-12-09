@@ -4,8 +4,6 @@ export const memberSchema = yup
   .object({
     firstName: yup.string().required(),
     lastName: yup.string().required(),
-    email: yup.string().email().required(),
-    position: yup.string().required(),
     info: yup.string().required(),
     active: yup.boolean().required(),
     file: yup

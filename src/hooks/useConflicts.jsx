@@ -21,7 +21,7 @@ const useConflicts = () => {
             imageUrl: 'https://i.ytimg.com/vi/js1ajwcwpBQ/maxresdefault.jpg',
          },
          {
-          id: "1",
+          id: "2",
           firstName: "Maria",
           lastName: "Zambrano",
           email:"mzamb@gmail.com",
@@ -35,7 +35,7 @@ const useConflicts = () => {
           imageUrl: 'http://impreso.diarioeldia.cl/sites/default/files/styles/fullscreen/public/102019/una_moderna_maquina.jpg?itok=61StIdbN',
        },
        {
-        id: "1",
+        id: "3",
         firstName: "Maria",
         lastName: "Zambrano",
         email:"mzamb@gmail.com",
@@ -49,7 +49,7 @@ const useConflicts = () => {
         imageUrl: 'https://www.davidnoticias.cl/wp-content/uploads/2018/01/agua-rtio.png',
      },
      {
-      id: "1",
+      id: "4",
       firstName: "Maria",
       lastName: "Zambrano",
       email:"mzamb@gmail.com",

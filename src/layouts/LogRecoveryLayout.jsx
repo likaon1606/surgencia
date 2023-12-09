@@ -23,7 +23,7 @@ const LogRecoveryLayout = ({ children, text, titleLog }) => {
 
 LogRecoveryLayout.propTypes = {
   children: PropTypes.element,
-  titleLog: PropTypes.element,
+  titleLog: PropTypes.string,
   text: PropTypes.element,
 }
 

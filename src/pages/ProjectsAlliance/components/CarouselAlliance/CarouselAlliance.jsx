@@ -3,45 +3,55 @@ import './CardAlliance.css'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Loader } from '@/components/ui/Loader/Loader'
+
+const settings = {
+  dots: true,
+  infinite: true,
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  initialSlide: 0,
+  autoplay: true,
+  speed: 2500,
+  autoplaySpeed: 2500,
+  cssEase: 'linear',
+  responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 2,
+        initialSlide: 1,
+        infinite: true,
+        dots: true,
+      },
+    },
+    {
+      breakpoint: 991,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 1,
+        infinite: true,
+        dots: true,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        initialSlide: 1,
+      },
+    },
+  ],
+}
 
 function CarouselAlliances() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 1,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 1000,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 1,
-        },
-      },
-    ],
-  }
-
   const { data: alliances, isLoading, isError } = useGetAlliance()
 
-  useEffect(() => {}, [alliances])
-
   if (isLoading) {
-    return <p>Cargando...</p>
+    return <Loader />
   }
 
   if (isError) {
@@ -49,23 +59,19 @@ function CarouselAlliances() {
   }
 
   return (
-    <div className="m-5">
-      <Slider {...settings}>
-        {alliances?.map((alliance, i) => (
-          <div key={i} className="col">
-            <div className="card">
-              <img src={alliance.allianceLogo} className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title text-center">{alliance.name}</h5>
-                {alliance.url && (
-                  <Link to="*" className="text-decoration-none text-white">
-                    {alliance.url}
-                  </Link>
-                )}
-              </div>
-              <div className="d-flex justify-content-evenly p-4"></div>
-            </div>
-          </div>
+    <div className="my-5 mx-md-4">
+      <Slider {...settings} className="sliderAlliance">
+        {alliances?.map(alliance => (
+          <a
+            href={alliance.url}
+            key={alliance.id}
+            className="text-decoration-none h-100 card mb-2 p-3"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={alliance.allianceLogo} className="card-img-top" alt={alliance.name} />
+            <h5 className="card-title text-center mt-3 mb-0">{alliance.name}</h5>
+          </a>
         ))}
       </Slider>
     </div>

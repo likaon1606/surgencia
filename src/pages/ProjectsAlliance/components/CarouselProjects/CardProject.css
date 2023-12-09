@@ -1,10 +1,19 @@
 .cardSizing {
   width: 18rem;
 }
-.slick-slide > div{
+.sliderProjects .slick-slide > div{
   margin:0 0.9rem;
 }
 
-.slick-list{
+.sliderProjects .slick-list{
   margin: 0 0.9rem;
+}
+
+
+.sliderProjects .slick-slide > div{
+    margin:0 15px;
+}
+
+.sliderProjects .slick-list{
+    margin: 0 15px;
 }

@@ -1,18 +1,15 @@
 .article-card {
-  width: 25%;
-  min-width: 300px;
-  margin: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  width: 30%;
+  min-width: 340px;
+  max-width: 100%;
+  margin: 1rem;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
   -webkit-box-shadow: 3px 6px 4px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 3px 6px 4px 0px rgba(0, 0, 0, 0.25);
   border: 1px solid #d9d5d5;
   border-radius: 24px;
+  background-color: white;
 }
 
 .article-card img {
@@ -38,4 +35,6 @@
   text-decoration: none;
 }
 
-/*# sourceMappingURL=ArticleCard.css.map */
+.article-card .info .info-fake{
+  height: 60px;
+}

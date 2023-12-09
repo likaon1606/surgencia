@@ -1,22 +1,18 @@
 .userLayoutOffcanvas {
   background: transparent !important;
+  max-width: 300px;
 }
 
 .userOffcanvas .offcanvas-header,
 .userOffcanvas .offcanvas-body {
   background-color: #d9d5d5;
-  max-width: 300px;
-}
-
-.userOffcanvas .offcanvas-body {
-  border-radius: 0px 0px 20px 20px;
-  box-shadow: 10px 12px 5px -6px rgba(50, 50, 50, 0.75);
 }
 
 @media (max-width: 768px) {
-  .bg-light {
+  .bg-sidebar {
     display: none;
   }
+
   .hamburguer-container {
     position: relative;
     background: #d9d5d5;
@@ -24,12 +20,14 @@
     padding-top: 10px;
     padding-bottom: 10px;
   }
+
   .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
   }
+
   .transparent-btn {
     background: transparent !important;
     border: none !important;
@@ -40,10 +38,17 @@
 }
 
 @media (min-width: 768px) {
-  .bg-light {
+  .bg-sidebar {
     display: block;
+    background-color: #E1E1E1;
   }
+
   .hamburguer-container {
     display: none;
   }
+}
+
+.nav-link.active {
+  filter: invert(1);
+  background-color: #948F8F;
 }

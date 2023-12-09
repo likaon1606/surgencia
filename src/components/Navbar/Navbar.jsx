@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/imgSurgencia.png'
 import './Navbar.css'
 import instagram from '../../assets/featuresIcons/mdi_instagram.svg'
 import facebook from '../../assets/featuresIcons/ic_baseline-facebook.svg'
@@ -32,8 +32,9 @@ const NavigatorNav = ({ searchBar }) => {
         </div>
 
         {/* Logo */}
+        
         <div className="col-4 text-center">
-          <img src={logo} alt="logo" className="nav-logo"></img>
+        <Link to="/"><img src={logo} alt="logo" className="nav-logo"></img></Link>
         </div>
 
         {/* SearchBar */}

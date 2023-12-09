@@ -11,7 +11,6 @@ const RecoverForm = () => {
   const { mutate} = useRecoverPasswordLink();
 
   const onSubmit =(data) => {
-   console.log(data)
    mutate({ email: data.email})
   }
   return (

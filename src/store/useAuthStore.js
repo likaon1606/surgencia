@@ -8,6 +8,9 @@ const useAuthStore = create(
       isAuthenticated: false,
       setAuth: ({ user }) => set({ user, isAuthenticated: !!user }),
       logout: () => set({ user: null, isAuthenticated: false }),
+      clearLocalStorage: () => {
+        localStorage.clear();
+      },
     }),
     {
       name: 'auth-storage',

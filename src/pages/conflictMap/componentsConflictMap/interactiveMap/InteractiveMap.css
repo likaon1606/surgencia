@@ -1,0 +1,21 @@
+.text-conflict-container {
+    max-width: 874px;
+}
+
+.text-conflict-container h2 {
+    font-size: 1.3rem;
+}
+
+.text-conflict-container p {
+    font-size: 1rem;
+}
+
+@media (min-width: 991px) {
+    .text-conflict-container h2 {
+        font-size: 1.7rem;
+    }
+
+    .text-conflict-container p {
+        font-size: 1.1rem;
+    }
+}

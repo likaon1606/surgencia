@@ -5,7 +5,7 @@ import Breadcrumbs from '@/components/ui/Breadcrums'
 import File from './components/File'
 import { useParams } from 'react-router-dom'
 import useMaterialsByCategorySlug from '../../hooks/useMaterialsByCategorySlug'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import PaginationComponent from '../../components/PaginationComponent'
 import { CategoryList } from './components/CategoryList'
 
@@ -19,6 +19,14 @@ const FilteredMaterial = () => {
     { name: `${breadcrumCategory}` },
   ]
 
+  const { data, isLoading, isError } = useMaterialsByCategorySlug(id, currentPage)
+  const materials = data?.paginatedResults
+
+  useEffect(() => {
+    // Reset currentPage to 1 when the category changes
+    setCurrentPage(1)
+  }, [id])
+
   const nextPage = () => {
     setCurrentPage(currentPage + 1)
   }
@@ -26,9 +34,6 @@ const FilteredMaterial = () => {
   const prevPage = () => {
     setCurrentPage(currentPage - 1)
   }
-
-  const { data, isLoading, isError } = useMaterialsByCategorySlug(id, currentPage)
-  const materials = data?.paginatedResults
 
   return (
     <RootLayout title="Quienes Somos" backButton={<ButtonBack />} searchBar={<SearchBar />}>
@@ -41,9 +46,10 @@ const FilteredMaterial = () => {
               <File
                 className="d-flex justify-content-center"
                 key={m.id}
+                image={m.imagePreview}
                 title={m.title}
-                firstName={m.User.firstName}
-                lastName={m.User.lastName}
+                author={m.author}
+                externalUrl={m.externalUrl}
               ></File>
             )
           })}

@@ -1,0 +1,43 @@
+.SliderDevMember .slick-slide>div {
+    height: 100%;
+}
+.SliderDevMember .slick-slide {
+    margin: 0 0.5rem;
+    height: 100%;
+}
+
+.SliderDevMember {
+    margin-bottom: 6rem;
+}
+
+.SliderDevMember .slick-prev:before,
+.SliderDevMember .slick-next:before {
+    color: black;
+}
+
+.SliderDevMember .slick-track {
+    display: flex !important;
+}
+
+.SliderDevMember .slick-slide {
+    height: inherit !important;
+}
+
+.contenedorDevMember {
+    width: 80%;
+    min-height: 40rem;
+    margin: auto;
+}
+
+
+.SliderDevMember .slick-dots {
+    bottom: -40px;
+}
+
+
+.imgCardDevMember{
+    width: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+

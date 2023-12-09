@@ -8,8 +8,21 @@ import { Input } from '@/components/form/Input'
 import { memberSchema } from '@/schemas/memberSchema'
 import { MemberService, ImageService } from '../../../services'
 import DOMPurify from 'dompurify'
+import Quill from 'quill'
+import { Loader } from '@/components/ui/Loader/Loader'
+import { useState } from 'react'
+
+const QuillLink = Quill.import('formats/link')
+
+QuillLink.sanitize = function (url) {
+  if (!url.startsWith('http://') && !url.startsWith('https://')) {
+    return `http://${url}`
+  }
+  return url
+}
 
 const ModalAbout = () => {
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
   const {
     handleSubmit,
@@ -23,8 +36,6 @@ const ModalAbout = () => {
       file: null,
       firstName: '',
       lastName: '',
-      email: '',
-      position: '',
       info: '',
       active: true,
     },
@@ -38,9 +49,10 @@ const ModalAbout = () => {
 
   const onSubmit = handleSubmit(async ({ file, ...payload }) => {
     try {
+      setLoading(true)
       const imageUrl = await ImageService.upload(file[0])
       const sanitizedBody = DOMPurify.sanitize(editorContent)
-      const data = await MemberService.create({
+      await MemberService.create({
         ...payload,
         body: sanitizedBody,
         imageUrl,
@@ -51,8 +63,13 @@ const ModalAbout = () => {
       }, 1000)
     } catch (error) {
       console.error({ error })
+      setLoading(false)
     }
   })
+
+  if (loading) {
+    return <Loader />
+  }
 
   return (
     <div className="AgregarMiembros mt-2 p-5">
@@ -64,7 +81,6 @@ const ModalAbout = () => {
           <div className="form-group">
             <Input name="firstName" label="Nombre:" control={control} />
             <Input name="lastName" label="Apellido:" control={control} />
-            <Input name="email" label="Correo:" control={control} />
           </div>
           <div className="form-group mt-3">
             <label>Descripción:</label>
@@ -81,17 +97,17 @@ const ModalAbout = () => {
             <input type="file" className="form-control" accept="image/*" {...register('file')} />
             <small className="d-block text-danger">{errors?.file?.message}</small>
           </div>
-          <Input name="position" label="Rol:" control={control} />
           <div className="form-group mt-3 d-flex justify-item-center align-items-center">
+            <label>Estado: </label>
             <input type="checkbox" className="form-check-input m-2" {...register('active')} />
             <label>Activo</label>
           </div>
           <div className="mt-5 d-flex gap-5">
-            <button className="btn btn-primary" style={{ width: '10em', height: '2.5em' }} onClick={''}>
+            <button className="btn btn-primary" style={{ width: '8em', height: '2.5em' }} onClick={''}>
               Guardar
             </button>
             <Link to="/admin/about">
-              <button className="btn btn-secondary" style={{ width: '10em' }}>
+              <button className="btn btn-secondary" style={{ width: '8em' }}>
                 Volver
               </button>
             </Link>

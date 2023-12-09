@@ -43,11 +43,9 @@ const ResetForm = () => {
             },
             validate: value => {
               if (value.length < 8) {
-                return 'la contraseña debe tener al menos 8 caracteres'
-              } else if (value.length > 16) {
-                return 'la contraseña debe tener menos de 16 caracteres'
-              } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/.test(value)) {
-                return 'la contraseña debe tener al menos un número, al menos una minúscula y al menos una mayúscula.'
+                return 'La contraseña debe tener al menos 8 caracteres'
+              } else if (!/^(?=.*\d)(?=.*[A-Za-z])/.test(value)) {
+                return 'La contraseña debe tener al menos una letra y un número.'
               }
             },
           })}

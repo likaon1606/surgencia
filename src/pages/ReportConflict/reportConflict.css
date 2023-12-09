@@ -1,0 +1,18 @@
+.form {
+  width: 0px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.form.open {
+  width: 800px;
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
