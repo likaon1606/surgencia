@@ -4,7 +4,7 @@ const RegisterConflict = () => {
   return (
     <div className="bg-dark-subtle rounded shadow my-5">
       <div className="d-flex flex-column justify-content-center align-items-center" style={{ height: '12rem' }}>
-        <h4 className="text-center">¿Quieres registrar una denuncia?</h4>
+        <h4 className="text-center">Tú también puedes aportar con tu registro.</h4>
         <div className="d-md-block">
           <Link className="text-decoration-none" to="/report">
             {' '}

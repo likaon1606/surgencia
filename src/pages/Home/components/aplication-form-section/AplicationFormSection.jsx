@@ -8,7 +8,10 @@ const AplicationFormSection = () => {
     <div>
       <Card className="card-aplication-form shadow border-0">
         <Card.Body className="text-center mx-auto my-4">
-          <Card.Text>¿Te animas a enviarnos una pregunta o compartirnos información? </Card.Text>
+          <Card.Text>
+            ¡Contáctanos!<br></br> Si tienes alguna duda, sugerencia o comentario, escríbenos y nos pondremos en contacto
+            contigo.
+          </Card.Text>
           <a href="mailto:surgenciaong@gmail.com?subject=Mensaje desde pagina web">
             <Button variant="dark" className="btn-aplication-form rounded-pill">
               Enviar

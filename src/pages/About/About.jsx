@@ -16,8 +16,10 @@ const About = () => {
     <RootLayout title="Quienes Somos" backButton={<ButtonBack />} searchBar={<SearchBar />}>
       <Breadcrumbs breadcrumbs={breadcrumbsData} />
       <div className="m-5 w-75">
-        Un grupo multidisiplinario de voluntari@s unid@s por la conservación y puesta en valor del patrimonio
-        costero-marino de la Región de Coquimbo.
+        Somos una organización no gubernamental sin fines de lucro comprometida, desde el 2018, con la conservación y la
+        puesta en valor del patrimonio costero-marino de la Región de Coquimbo.. Nuestro equipo está conformado por
+        profesionales de diversas áreas, lo que nos permite integrar una visión multidisciplinaria y proyectarnos como
+        agentes de cambio ante los desafíos socio-ambientales del territorio.
       </div>
       <div className="contenedorMembers">
         {isLoading ? <Loader /> : <CarouselMember members={members}></CarouselMember>}

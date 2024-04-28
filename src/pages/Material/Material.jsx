@@ -31,6 +31,10 @@ const Material = () => {
   return (
     <RootLayout title="Quienes Somos" backButton={<ButtonBack />} searchBar={<SearchBar />}>
       <Breadcrumbs breadcrumbs={breadcrumbsData} />
+      <div className="m-5 w-75">
+        Conoce, descarga, utiliza y distribuye libremente los materiales que hemos elaborado a través de diversas
+        iniciativas.
+      </div>
       <CategoryList />
       {!isLoading && !isError ? (
         <>

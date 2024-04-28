@@ -70,7 +70,6 @@ export const InteractiveMap = () => {
           Región de Coquimbo?
         </h2>
         <p>Navega en este mapa y revisa todas las observaciones que hemos recibido.</p>
-        <p>Tú también puedes aportar con tu registro.</p>
       </div>
       <div className="d-flex flex-column my-4 align-items-center">
         <GoogleMap

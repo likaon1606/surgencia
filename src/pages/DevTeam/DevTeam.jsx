@@ -10,7 +10,7 @@ import './DevTeam.css'
 import { FaLinkedin } from 'react-icons/fa'
 
 const DevTeam = () => {
-  const breadcrumbsData = [{ name: 'Inicio', url: '/' }, { name: 'Equipo Desarroladores' }]
+  const breadcrumbsData = [{ name: 'Inicio', url: '/' }, { name: 'Equipo Desarrolladores' }]
 
 const backdevs = [
   {
@@ -52,7 +52,7 @@ const backdevs = [
   {
     name: 'René Donaire',
     image:
-      'https://media.licdn.com/dms/image/D4E03AQEWiV2Fpoyfiw/profile-displayphoto-shrink_200_200/0/1687015060426?e=1706745600&v=beta&t=Fd5l34tQjAA0H33S4ySPn3t_D_KSRRRxxnWeHl7WGbo',
+      'https://media.licdn.com/dms/image/D4E03AQEBTrwEbtoIag/profile-displayphoto-shrink_200_200/0/1702483613915?e=1709769600&v=beta&t=uKbHww1KgjaU8H5JbrU2JMf1kegvlnaR4G92OTX_mr8',
     cargo: 'Back End',
     link: 'https://www.linkedin.com/in/rene-donaire/',
   },
@@ -113,7 +113,13 @@ const frontdevs = [
     name: 'Marco Camargo',
     image: 'https://avatars.githubusercontent.com/u/104401054?v=4',
     cargo: 'Front-End',
-    link: 'https://www.linkedin.com/',
+    link: 'https://www.linkedin.com/in/marco-camargo-b10204236/',
+  },
+  {
+    name: 'Daniel Pinto',
+    image: 'https://avatars.githubusercontent.com/u/104031313?v=4',
+    cargo: 'UX/UI',
+    link: 'https://www.linkedin.com/in/dpintok/',
   },
 ]
 
